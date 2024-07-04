@@ -1,0 +1,98 @@
+.orClient_Container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.orClient_HeadComponent{
+    position: relative;
+    background-color: red;
+    width: 100%;
+    height: 80px;
+
+        
+}
+
+.orClient_HeadComponent .Orclient_Head_Left{
+    position: absolute;
+    background-color: rgb(216, 219, 222);
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 0px;
+    width: 40%;
+    height: 100%;
+    top:0px;
+    z-index: 1;
+}
+
+.orClient_HeadComponent .Orclient_Head_Left .Left_Text{
+    position: absolute;
+    top: 5px;
+    right: 30%;
+    font-size:45px;
+    text-shadow:0.3em 0.3em 0.3em rgb(162, 166, 161);
+    color:rgb(85, 89, 92);
+    font-family:"標楷體";
+    
+}
+.orClient_HeadComponent .Orclient_Head_Left  .Left_English{
+    position: absolute;
+    top: 53px;
+    right: 26%;
+    font-size:20px;
+    color:rgb(227, 11, 33);
+    font-family:"標楷體";
+    
+}
+
+
+.orClient_HeadComponent .Orclient_Head_Right{
+    position: absolute;
+    top:0px;
+    background-color: rgb(20, 153, 138);
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    font-size:60px;
+    z-index: 0;
+
+
+
+}
+
+
+.orClient_HeadComponent .Orclient_Head_Left .Logo{
+    position: relative;
+    margin-top: 0px;
+    
+}
+
+
+
+
+
+
+.orClient_MiddleComponent{
+    background-color: rgb(66, 180, 60);
+    width: 100%;    
+
+}
+
+.orClient_MiddleComponent .left_Middle{
+    background-color: rgb(66, 180, 60);
+    width: 40%;    
+
+}
+
+.orClient_MiddleComponent .Right_Middle{
+    background-color: rgb(66, 180, 60);
+    width: 60%;    
+
+}
+
+
+.orClient_FootComponent{
+    background-color: rgb(178, 250, 63);
+    width: 100%;    
+
+}
+
+
