@@ -1,6 +1,7 @@
 .orClient_Container{
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .orClient_HeadComponent{
@@ -70,28 +71,47 @@
 
 
 
-.orClient_MiddleComponent{
+.orClient_MiddleComponent {
+    position: relative;
     background-color: rgb(66, 180, 60);
-    width: 100%;    
+    width: 100%; 
+    height: 700px;   
 
 }
 
-.orClient_MiddleComponent .left_Middle{
-    background-color: rgb(66, 180, 60);
-    width: 40%;    
-
+.orClient_MiddleComponent .Orclient_Middle_Left{
+    position: absolute;
+    background-color: rgb(135, 150, 134);
+    width: 40%;
+    height: 680px;    
+    top:0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.orClient_MiddleComponent .Right_Middle{
-    background-color: rgb(66, 180, 60);
-    width: 60%;    
+.orClient_MiddleComponent .Orclient_Middle_Right{
+    position: absolute;
+    background-color: rgb(180, 60, 90);
+    width: 58%;    
+    right: 0;
+    top: 0;
+    height: 680px;    
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 
 }
 
 
 .orClient_FootComponent{
+    position: relative;
     background-color: rgb(178, 250, 63);
-    width: 100%;    
+    width: 100%;   
+    height: 150px; 
 
 }
 
