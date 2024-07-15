@@ -82,7 +82,7 @@
 .orClient_MiddleComponent .Orclient_Middle_Left{
     position: absolute;
     background-color: rgb(135, 150, 134);
-    width: 40%;
+    width: 60%;
     height: 680px;    
     top:0;
     margin-top: 10px;
@@ -94,7 +94,7 @@
 .orClient_MiddleComponent .Orclient_Middle_Right{
     position: absolute;
     background-color: rgb(180, 60, 90);
-    width: 58%;    
+    width: 48%;    
     right: 0;
     top: 0;
     height: 680px;    
