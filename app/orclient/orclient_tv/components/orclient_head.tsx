@@ -9,10 +9,10 @@ import logo from "../image/logo.jpg";
 
 const Orclient_Head: React.FC=(props)=>{
   const [currentDate,setCurrentDateTime] =useState<Date>(new Date());
-  const day=['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const daysWeek=[currentDate.getDay()];
+  const day:string[]=['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const daysWeek:string=day[currentDate.getDay()];
 
-  const caseDay = (dayOfWeek) => {
+  const caseDay = (dayOfWeek:string) => {
   switch (dayOfWeek) {
     case "Sunday":
       return "星期日";
@@ -29,22 +29,19 @@ const Orclient_Head: React.FC=(props)=>{
     case "Saturday":
       return "星期六";
     default:
-      return ""; // 如果沒有匹配到任何情況，可以返回空字符串或者其他預設值
+      return "None"; // 如果沒有匹配到任何情況，可以返回空字符串或者其他預設值
   }
 };
 
-  const test=()=>{
-    alert(caseDay(daysWeek));
-  }
+
   useEffect(()=>{
     const time=setInterval(()=>{
       setCurrentDateTime(new Date);
     },1000)
-    console.log('Component mounted on client');
   },[]);
 
 
-  const formattedTime=`${currentDate.toLocaleDateString()}-${caseDay(caseDay(daysWeek))}-${currentDate.toLocaleTimeString()}`;
+  const formattedTime=`${currentDate.toLocaleDateString()}-${caseDay(daysWeek)}-${currentDate.toLocaleTimeString()}`;
   return (
     <main><div className="Orclient_Head_Left"    ><Image className="Logo" src={logo} alt="Logo" width={100} height={80} /><span className="Left_Text">重仁骨科醫院<br/></span><span className="Left_English">(Chugnjen-Orthopaedic-Hospital)</span></div><div className="Orclient_Head_Right">{formattedTime}</div></main>    
 
