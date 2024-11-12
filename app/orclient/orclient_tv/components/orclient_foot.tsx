@@ -7,7 +7,7 @@ import React from "react";
 
 const Orclient_Foot: React.FC=(props)=>{
   return (
-    <main><div><h1>this is or Orclient_Foot</h1></div></main>    
+    <main><div className="marquee-Cotntainer"><h1 className="marquee-Text">這是跑馬燈!!這是跑馬燈!!這是跑馬燈!!這是跑馬燈!!這是跑馬燈!!這是跑馬燈!!這是跑馬燈!!</h1></div></main>    
 
   );
 

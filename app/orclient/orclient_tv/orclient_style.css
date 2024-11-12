@@ -127,11 +127,38 @@
 }
 
 .orClient_MiddleComponent .Orclient_Middle_Right_Patient{
+    font-family: "標楷體";
     position:relative;
-    background-color: rgb(197, 216, 219);
+    background-color: rgb(172, 222, 230);
     margin: 10px;
     border: 3px solid;
     border-radius: 8px;
+
+}
+
+.orClient_MiddleComponent .Orclient_Middle_Right_Patient .Orclient_Middle_Right_Patient_Name{
+    position:relative;
+    font-size: 60px;
+    display: inline-block;
+    padding-left: 5%;
+
+}
+
+
+.orClient_MiddleComponent .Orclient_Middle_Right_Patient .Orclient_Middle_Right_Patient_Gender{
+    position:relative;
+    display: inline-block;
+    font-size: 60px;
+    padding-left: 20%;
+
+}
+
+.orClient_MiddleComponent .Orclient_Middle_Right_Patient .Orclient_Middle_Right_Patient_Status{
+    position:relative;
+    font-size: 60px;
+    display: inline-block;
+    float: right;
+    padding-right: 5%;
 
 }
 
@@ -142,8 +169,48 @@
     color: whitesmoke;
     font-family: "標楷體";
     width: 100%;   
-    height: 150px; 
+    height: 100%; 
+    font-size: 25px;
+
+    
 
 }
+
+.marquee-Cotntainer{
+    top: 0;
+    background-color: rgb(21, 71, 90);
+    font-family: "標楷體";
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+
+
+}
+
+
+.marquee-Text{
+    top: -30px;  /* 让它向上移动 */
+position: relative;
+white-space: nowrap;
+display: inline-block;
+animation:marquee 30s linear infinite;
+}
+
+
+
+
+@keyframes marquee{
+ 0%{
+    transform: translateX(100%); /* 初始位置，文本从右侧开始 */
+
+ }
+ 100%{
+
+    transform: translateX(-100%); /* 初始位置，文本从右侧开始 */
+
+ }
+
+}
+
 
 
