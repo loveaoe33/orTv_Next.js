@@ -111,8 +111,7 @@
 }
 .orClient_MiddleComponent .Orclient_Middle_Right_Patient_schedule{
     background-color: rgb(37, 43, 25);
-  outline: 0.5rem solid rgb(241, 7, 46);
-  box-shadow: 0 0 0 1.5rem rgb(104, 128, 217);
+  outline: 0.3rem solid rgb(241, 7, 46);
   border-radius: 5px;
   font: bold 1rem sans-serif;
   margin: 2rem;
@@ -130,7 +129,7 @@
     font-family: "標楷體";
     position:relative;
     background-color: rgb(172, 222, 230);
-    margin: 10px;
+    margin: 20px;
     border: 3px solid;
     border-radius: 8px;
 
@@ -189,10 +188,11 @@
 
 
 .marquee-Text{
-    top: -30px;  /* 让它向上移动 */
+top: -30px;  /* 让它向上移动 */
 position: relative;
 white-space: nowrap;
 display: inline-block;
+width: 100%;
 animation:marquee 30s linear infinite;
 }
 
