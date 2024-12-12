@@ -36,7 +36,7 @@ const Orclient_Middle: React.FC = (props) => {
 
   const [apiTitle, setUrl] = useState<string | null>("localhost:8090//orTvController");
   const [maquee, setMaquee] = useState<string | null>("");
-  const [patientArray, setPatientArray] = useState<PatientData[] | null>(null);
+  const [patientArray, setPatientArray] = useState<PatientData[] | null>([]);
   // type Option="Patient"|"Maquee"
   // const fetchPatient = async()=>{
   // try{
@@ -53,67 +53,152 @@ const Orclient_Middle: React.FC = (props) => {
 
   // }
   // }
+  const PatienPrint = (): JSX.Element => {
+    // 假設 patientArray 是已定義並且是有效的陣列
+    return (
+     <div>
+        {patientArray?.map((item, index) => {
+          let result:JSX.Element | string = ""; // 用來存儲每個條件下的結果
+  
+          // 根據條件來設置 result
+          if (item.Patient_Gender === '男生' && item.Patient_Status === '手術進行中') {
+            result = (
+              <div key={index}>
+                <div className="Orclient_Middle_Right_Patient">
+                  <div className="Orclient_Middle_Right_Patient_Name">{ item.Patient_Name}</div>
+                  <div className="Orclient_Middle_Right_Patient_Gender" style={{ color: "blue" }}>男</div>
+                  <div className="Orclient_Middle_Right_Patient_Status" style={{ color: "red" }}>手術進行中</div>
+                </div>
+              </div>
+            );
+          } else if (item.Patient_Gender === '男生' && item.Patient_Status === '推回病床') {
+            result = (
+              <div key={index}>
+                <div className="Orclient_Middle_Right_Patient">
+                  <div className="Orclient_Middle_Right_Patient_Name">{ item.Patient_Name}</div>
+                  <div className="Orclient_Middle_Right_Patient_Gender" style={{ color: "blue" }}>男</div>
+                  <div className="Orclient_Middle_Right_Patient_Status" style={{ color: "green" }}>{ item.Patient_Status}</div>
+                </div>
+              </div>
+            );          } else if (item.Patient_Gender === '男生' && item.Patient_Status === '手術結束') {
+              result = (
+                <div key={index}>
+                  <div className="Orclient_Middle_Right_Patient">
+                    <div className="Orclient_Middle_Right_Patient_Name">{ item.Patient_Name}</div>
+                    <div className="Orclient_Middle_Right_Patient_Gender" style={{ color: "blue" }}>男</div>
+                    <div className="Orclient_Middle_Right_Patient_Status" style={{ color: "black" }}>{ item.Patient_Status}</div>
+                  </div>
+                </div>
+              ); } else if (item.Patient_Gender === '男生' && item.Patient_Status === '手術準備中') {
+                result = (
+                  <div key={index}>
+                    <div className="Orclient_Middle_Right_Patient">
+                      <div className="Orclient_Middle_Right_Patient_Name">{ item.Patient_Name}</div>
+                      <div className="Orclient_Middle_Right_Patient_Gender" style={{ color: "blue" }}>男</div>
+                      <div className="Orclient_Middle_Right_Patient_Status" style={{ color: "#0072E3" }}>{ item.Patient_Status}</div>
+                    </div>
+                  </div>
+                );          } else if (item.Patient_Gender === '女生' && item.Patient_Status === '手術進行中') {
+                result = (
+                  <div key={index}>
+                    <div className="Orclient_Middle_Right_Patient">
+                      <div className="Orclient_Middle_Right_Patient_Name">{ item.Patient_Name}</div>
+                      <div className="Orclient_Middle_Right_Patient_Gender" style={{ color: "Magenta" }}>女</div>
+                      <div className="Orclient_Middle_Right_Patient_Status" style={{ color: "red" }}>{ item.Patient_Status}</div>
+                    </div>
+                  </div>
+                );          } else if (item.Patient_Gender === '女生' && item.Patient_Status === '推回病床') {
+                  result = (
+                    <div key={index}>
+                      <div className="Orclient_Middle_Right_Patient">
+                        <div className="Orclient_Middle_Right_Patient_Name">{ item.Patient_Name}</div>
+                        <div className="Orclient_Middle_Right_Patient_Gender" style={{ color: "Magenta" }}>女</div>
+                        <div className="Orclient_Middle_Right_Patient_Status" style={{ color: "green" }}>{ item.Patient_Status}</div>
+                      </div>
+                    </div>
+                  );          } else if (item.Patient_Gender === '女生' && item.Patient_Status === '手術結束') {
+            result = (
+              <div key={index}>
+                <div className="Orclient_Middle_Right_Patient">
+                  <div className="Orclient_Middle_Right_Patient_Name">{ item.Patient_Name}</div>
+                  <div className="Orclient_Middle_Right_Patient_Gender" style={{ color: "Magenta" }}>女</div>
+                  <div className="Orclient_Middle_Right_Patient_Status" style={{ color: "black" }}>{ item.Patient_Status}</div>
+                </div>
+              </div>
+            );          }else if (item.Patient_Gender === '女生' && item.Patient_Status === '手術準備中') {
+              result = (
+                <div key={index}>
+                  <div className="Orclient_Middle_Right_Patient">
+                    <div className="Orclient_Middle_Right_Patient_Name">{ item.Patient_Name}</div>
+                    <div className="Orclient_Middle_Right_Patient_Gender" style={{ color: "Magenta" }}>女</div>
+                    <div className="Orclient_Middle_Right_Patient_Status" style={{ color: "#0072E3" }}>{ item.Patient_Status}</div>
+                  </div>
+                </div>
+              );          }
+  
+          return result; // 回傳處理結果
+        })}
+    </div>
+    );
+  };
+  
 
-  const PaitenNameProcess = (data: Array<PatientData>) => {
-    if (data.length > 0) {
-      data.forEach((element) => {
-        element.Patient_Name.slice(0, 1) + "O" + element.Patient_Name.slice(2);
-        alert( element.Patient_Name);
-      });
-      setPatientArray(data);
-      console.log("123"+patientArray);
+
+  const PaitetnNameProcess = (data: Array<PatientData>): void => {
+      if (data.length > 0) {
+        data.forEach((element) => {
+          element.Patient_Name=element.Patient_Name.substring(0, 1) + "O" + element.Patient_Name.substring(2);
+        });
+        setPatientArray(data);
+      }
+
     }
 
-  }
 
+    const handlLogic = (Data: Array<PatientData>): void => {
+      PaitetnNameProcess(Data);
+    }
 
-  const handlLogic = (Data: Array<PatientData>): void => {
-    PaitenNameProcess(Data);
-  }
+    const FetchPatietn = async () => {
+      try {
 
-  const FetchPatietn = async () => {
-    try {
+        // const [response_Patient,response_Maquee ]=await Promise.all([
+        //   fetch('/api/orclient_patient_api'),
+        //   fetch('/api/orclient_maquee_api'),
+        // ])
+        const response_Patient = await fetch('/api/orclient_patient_api')
+        if (!response_Patient.ok) {
+          throw new Error("patientAPI呼叫錯誤!請聯絡....");
+        }
+        const result_Patient: ApiResponse<PatientData[]> = await response_Patient.json();
 
-      // const [response_Patient,response_Maquee ]=await Promise.all([
-      //   fetch('/api/orclient_patient_api'),
-      //   fetch('/api/orclient_maquee_api'),
-      // ])
-      const response_Patient = await fetch('/api/orclient_patient_api')
-      if (!response_Patient.ok) {
-        throw new Error("patientAPI呼叫錯誤!請聯絡....");
+        if (response_Patient.status === 200 && result_Patient.data) {  //帶入跑馬燈與病歷資料
+          //*
+          handlLogic(result_Patient.data);      //
+          return;
+        }
+        alert("getPatienError");
+
+      } catch (error) {
+        console.log(`API錯誤:${error}`);
       }
-      const result_Patient: ApiResponse<PatientData[]> = await response_Patient.json();
-
-      if (response_Patient.status === 200 && result_Patient.data) {  //帶入跑馬燈與病歷資料
-        //*
-        handlLogic(result_Patient.data);      //
-        console.log();
-        return;
-      }
-      alert("getPatienError");
-
-    } catch (error) {
-      console.log(`API錯誤:${error}`);
 
     }
 
-  }
 
-  useEffect(() => {
-    FetchPatietn();
-    // fetch('/api/orclient_patient_api').then((response)=>response.json()).then((data)=>{ alert(data.message); });
-    const time = setInterval(() => {
+
+
+    useEffect(() => {
       FetchPatietn();
-    }, 60000)
-    return () => { clearInterval(time); }
-  }, []);
+      // fetch('/api/orclient_patient_api').then((response)=>response.json()).then((data)=>{ alert(data.message); });
+      const time = setInterval(() => {
+        FetchPatietn();
+      }, 60000)
+      return () => { clearInterval(time); }
+    }, []);
 
 
-  return (
-    <main><div className="Orclient_Middle_Left"><iframe width="950" height="730" src="https://www.youtube.com/embed/m_dhMSvUCIc?autoplay=1" title="LIVE：TVBS NEWS網路獨家新聞24小時直播 Taiwan News 24hr 台湾世界中のニュースを24時間配信中 대만24시간뉴스채널 55台" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe></div><div className="Orclient_Middle_Right"><div className="Orclient_Middle_Right_Patient_schedule">手術進度</div><div className="Orclient_Middle_Right_Patient"><div className="Orclient_Middle_Right_Patient_Name">李O林</div>    <div className="Orclient_Middle_Right_Patient_Gender" style={{ color: "#9932cc" }}>女</div>    <div className="Orclient_Middle_Right_Patient_Status" style={{ color: "#32cd32" }}>準備中</div></div><div className="Orclient_Middle_Right_Patient"><div className="Orclient_Middle_Right_Patient_Name">李O強</div>    <div className="Orclient_Middle_Right_Patient_Gender" style={{ color: "blue" }}>男</div>    <div className="Orclient_Middle_Right_Patient_Status" style={{ color: "red" }}>手術進行中</div></div>   <div className="Orclient_Middle_Right_Patient"><div className="Orclient_Middle_Right_Patient_Name">李O發</div>    <div className="Orclient_Middle_Right_Patient_Gender" style={{ color: "blue" }}>男</div>   <div className="Orclient_Middle_Right_Patient_Status" style={{ color: "black" }}>手術結束</div></div>   </div></main>
-
-  );
-
+return (
+<main><div className="Orclient_Middle_Left"><iframe width="950" height="730" src="https://www.youtube.com/embed/m_dhMSvUCIc?autoplay=1" title="LIVE：TVBS NEWS網路獨家新聞24小時直播 Taiwan News 24hr 台湾世界中のニュースを24時間配信中 대만24시간뉴스채널 55台" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> </div><div className="Orclient_Middle_Right"><div className="Orclient_Middle_Right_Patient_schedule">手術進度</div>  {PatienPrint()} </div> </main>)
 }
-
 export default Orclient_Middle;

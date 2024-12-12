@@ -136,11 +136,12 @@
 }
 
 .orClient_MiddleComponent .Orclient_Middle_Right_Patient .Orclient_Middle_Right_Patient_Name{
+    width: 200px;    /* 固定寬度 */
     position:relative;
     font-size: 60px;
     display: inline-block;
     padding-left: 5%;
-
+    
 }
 
 
@@ -149,7 +150,6 @@
     display: inline-block;
     font-size: 60px;
     padding-left: 20%;
-
 }
 
 .orClient_MiddleComponent .Orclient_Middle_Right_Patient .Orclient_Middle_Right_Patient_Status{
@@ -157,7 +157,7 @@
     font-size: 60px;
     display: inline-block;
     float: right;
-    padding-right: 5%;
+    padding-right: 2%;
 
 }
 

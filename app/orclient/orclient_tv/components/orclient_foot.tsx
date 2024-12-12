@@ -81,6 +81,7 @@ const Orclient_Foot: React.FC = (props) => {
     // fetch('/api/orclient_patient_api').then((response)=>response.json()).then((data)=>{ alert(data.message); });
     FetchMaquee();
     const time = setInterval(() => {
+      FetchMaquee();
     }, 60000)
     return () => { clearInterval(time); }
   }, []);
